@@ -37,7 +37,6 @@ public:
 private:
     bool isAlive;
 
-
 signals:
 
 public slots:
