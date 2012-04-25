@@ -50,8 +50,6 @@ public:
     bool isHit(QRect shot);
 
 private:    
-
-    int etat2[8][11];
     
 signals:
     
