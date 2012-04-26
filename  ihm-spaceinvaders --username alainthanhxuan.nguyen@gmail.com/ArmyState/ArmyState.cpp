@@ -1,16 +1,19 @@
 #include "ArmyState.h"
 #include <QPixmap>
 #include <iostream>
+#include <QString>
 
 using namespace std;
 
 ArmyState::ArmyState(QObject *parent){
+    name = "AbstractState";
     animationTimer = new QTimer(parent);
     connect(animationTimer,SIGNAL(timeout()),this,SLOT(animationSlot()));
-    cout<<"lfdsqfqsdfdvdqgq";
 }
 
-ArmyState::~ArmyState(){}
+ArmyState::~ArmyState(){
+    delete animationTimer;
+}
 
 QPixmap ArmyState::getPixMap(){
     return NULL;
@@ -25,4 +28,8 @@ int ArmyState::getWidth(){
 }
 
 void ArmyState::animationSlot(){
+}
+
+QString ArmyState::getClassName(){
+    return name;
 }
