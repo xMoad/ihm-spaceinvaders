@@ -14,7 +14,7 @@ Bullet::Bullet(QPoint posShip, BattleField* battleField, QWidget *parent) :
 void Bullet::paintShot(QPainter &painter){
     cout << "paintShot" << endl;
     painter.setPen(Qt::NoPen);
-    painter.setBrush(Qt::black);
+    painter.setBrush(Qt::yellow);
     painter.drawRect(shotRect());
 }
 

@@ -22,15 +22,15 @@
 
 #define fin -1
 
-#define intervalShip 30
-#define intervalRow 50
+#define intervalShip 40
+#define intervalRow 30
 
 class InvaderArmy : public QWidget
 {
     Q_OBJECT
 public:
-    InvaderShip* invaderArmy[armyHeigth][armyWidth];
-    //ArmyEntity* invaderArmy[armyHeigth][armyWidth];
+    //InvaderShip* invaderArmy[armyHeigth][armyWidth];
+    ArmyEntity* invaderArmy[armyHeigth][armyWidth];
 
     int xmin, xmax, ymin, ymax;
     int leftEdgeI, rightEdgeI, bottomEdgeI;
