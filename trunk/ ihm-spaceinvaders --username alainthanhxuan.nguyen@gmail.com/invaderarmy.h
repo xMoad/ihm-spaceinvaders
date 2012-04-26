@@ -22,9 +22,6 @@
 
 #define fin -1
 
-#define intervalShip 40
-#define intervalRow 30
-
 class InvaderArmy : public QWidget
 {
     Q_OBJECT
@@ -41,6 +38,9 @@ public:
 
     int timerCount;
     QTimer *autoMoveTimer;
+
+    static const int intervalShip = 20;
+    static const int intervalRow = 20;
 
     explicit InvaderArmy(int width, int height, QWidget *parent = 0);
     void paintArmy(QPainter &painter);

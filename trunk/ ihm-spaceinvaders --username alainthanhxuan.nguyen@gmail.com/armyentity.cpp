@@ -8,18 +8,17 @@
 #include <QList>
 #include "ArmyState/ArmyState1.h"
 #include "ArmyState/ArmyState2.h"
+#include "invaderarmy.h"
 
-ArmyEntity::ArmyEntity(int posX, int posY)
+ArmyEntity::ArmyEntity(int indexI, int indexJ)
 {
     state = new ArmyState1();
 
-    cout << "posX: " << posX << " posY: " << posY << endl;
-    pos.setX(posX);
-    pos.setY(posY);
+    pos.setX(state->getWidth()*indexI+InvaderArmy::intervalShip);
+    pos.setY(state->getHeight()*indexJ+InvaderArmy::intervalRow);
+    cout << "posX: " << pos.x() << " posY: " << pos.y() << endl;
 
     isAlive = true;
-    widthOfSQuare = 2;
-    heightOfSQuare = 2;
 }
 
 void ArmyEntity::paint(QPainter &painter){
@@ -34,6 +33,9 @@ void ArmyEntity::paint(QPainter &painter){
         QPixmap pxm = state->getPixMap();
         QRect target = QRect(pos.x(),pos.y(),pxm.width()-15,pxm.height()-15);
         QRect source = QRect(0,0,pxm.width(),pxm.height());
+        //path.addRect(target);
+        rect = target;
+
 
         painter.setPen(pen);
         painter.setBrush(Qt::blue);
@@ -51,13 +53,11 @@ bool ArmyEntity::getIsAlive(){
 }
 
 bool ArmyEntity::isHit(QRect shot){
-    if(isAlive){
-        if(path.intersects(shot)){
+        if(rect.intersects(shot)){
             isAlive = false;
             cout << "BOUM" << endl;
             return true;
         }
-    }
     return false;
 }
 

@@ -14,7 +14,7 @@ class ArmyEntity:QObject
 {
     Q_OBJECT
 public:
-    ArmyEntity(int posX, int posY);
+    ArmyEntity(int indexI, int indexJ);
     QTimer *autoMoveTimer;
     QPoint pos;
 
@@ -27,8 +27,8 @@ public:
 private:
     bool isAlive;
     QPainterPath path;
+    QRect rect;
     ArmyState *state;
-    int widthOfSQuare, heightOfSQuare;
 
     void calculatePath();
 
