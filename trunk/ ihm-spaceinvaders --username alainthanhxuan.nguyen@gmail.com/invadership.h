@@ -27,7 +27,7 @@ public:
     QRect invader;
 
     void fire();
-    void paintShip(QPainter &painter);
+    void paint(QPainter &painter);
     void setIsAlive(bool b);
     bool getIsAlive();
 

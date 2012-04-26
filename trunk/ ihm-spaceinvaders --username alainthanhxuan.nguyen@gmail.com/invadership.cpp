@@ -20,7 +20,7 @@ InvaderShip::InvaderShip(int posX, int posY)
     isAlive = true;
 }
 
-void InvaderShip::paintShip (QPainter &painter){
+void InvaderShip::paint(QPainter &painter){
 
     if(isAlive){
         //QPolygonF polygon;

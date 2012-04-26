@@ -18,7 +18,7 @@ BattleField::BattleField(QWidget *parent)
     target = QPoint(0, 0);
     gameEnded = false;
 
-    setPalette(QPalette(QColor(255, 255, 255)));
+    setPalette(QPalette(QColor(0, 0, 0)));
     setAutoFillBackground(true);
 }
 
