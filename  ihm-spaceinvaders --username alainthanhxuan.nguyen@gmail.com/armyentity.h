@@ -4,8 +4,8 @@
 #include <QTimer>
 #include <QPainter>
 #include <QPoint>
-
-enum state {state1,state2};
+#include <QPainterPath>
+#include "ArmyState/ArmyState.h"
 
 class ArmyEntity:QObject
 {
@@ -21,9 +21,13 @@ public:
 
 private:
     bool isAlive;
+    QPainterPath path;
+    ArmyState *state;
+    int widthOfSQuare, heightOfSQuare;
 
     void paint(QPainter &painter);
     void translate(int x, int y);
+    void calculatePath();
 
 public slots:
     void changeState();

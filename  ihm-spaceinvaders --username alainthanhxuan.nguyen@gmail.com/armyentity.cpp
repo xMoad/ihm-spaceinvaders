@@ -3,32 +3,17 @@
 #include <QTimer>
 #include <QPainter>
 #include <QPoint>
+#include <QPainterPath>
+#include <QRect>
+#include "ArmyState/ArmyState1.h"
+#include "ArmyState/ArmyState2.h"
 
 ArmyEntity::ArmyEntity()
 {
-    static const int state1[8][11] = {
-        {0,0,1,0,0,0,0,0,1,0,0},
-        {0,0,0,1,0,0,0,1,0,0,0},
-        {0,0,1,1,1,1,1,1,1,0,0},
-        {0,1,1,0,1,1,1,0,1,1,0},
-        {1,1,1,1,1,1,1,1,1,1,1},
-        {1,0,1,1,1,1,1,1,1,0,1},
-        {1,0,1,0,0,0,0,0,1,0,1},
-        {0,0,0,1,1,0,1,1,0,0,0}
-   };
-
-    static const int state2[8][11] = {
-        {0,0,1,0,0,0,0,0,1,0,0},
-        {1,0,0,1,0,0,0,1,0,0,1},
-        {1,0,1,1,1,1,1,1,1,0,1},
-        {1,1,1,0,1,1,1,0,1,1,1},
-        {0,1,1,1,1,1,1,1,1,1,0},
-        {0,0,1,1,1,1,1,1,1,0,0},
-        {0,0,1,0,0,0,0,0,1,0,0},
-        {0,0,0,1,1,0,1,1,0,0,0}
-   };
-
     isAlive = true;
+    state = new ArmyState2();
+    widthOfSQuare = 10;
+    heightOfSQuare = 10;
 }
 
 void ArmyEntity::paint(QPainter &painter){
@@ -69,11 +54,11 @@ bool ArmyEntity::getIsAlive(){
 
 bool ArmyEntity::isHit(QRect shot){
     if(isAlive){
-//        if(shot.intersects(this->invader)){
-//            isAlive = false;
-//            cout << "BOUM" << endl;
-//            return true;
-//        }
+        //        if(shot.intersects(this->invader)){
+        //            isAlive = false;
+        //            cout << "BOUM" << endl;
+        //            return true;
+        //        }
     }
     return false;
 }
@@ -87,4 +72,20 @@ void ArmyEntity::translate(int x, int y){
 void ArmyEntity::changeState()
 {
 
+}
+
+void ArmyEntity::calculatePath()
+{
+
+    for(int i = 0; i < 8; i++)
+    {
+        for(int j = 0; j < 11; j++)
+        {
+            //                if(ArmyEntity.state1[i][j] == 1)
+            //                {
+            //                    QRect rect = QRect(pos.x()+i*widthOfSQuare,pos.y()+j*heightOfSQuare,widthOfSQuare, widthOfSQuare);
+            //                    path.addRect(rect);
+            //                }
+        }
+    }
 }
