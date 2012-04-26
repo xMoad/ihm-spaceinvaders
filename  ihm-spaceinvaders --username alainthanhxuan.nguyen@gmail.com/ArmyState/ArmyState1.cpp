@@ -1,8 +1,6 @@
 #include "ArmyState1.h"
-#include <QList>
 #include <QString>
 #include <QImage>
-#include <QApplication>
 
 using namespace std;
 
@@ -39,23 +37,34 @@ ArmyState1::ArmyState1():ArmyState()
 //        }
 //        state1.append(lst);
 //    }
-    pxm = QPixmap("../img/invader2.gif");
+    pxm = new QPixmap[2];
+    pxm[0] = QPixmap("../img/invader2.gif");
+    pxm[1] = QPixmap("../img/invader2c.gif");
+    currentPixmap = pxm[0];
+
+    //animationTimer =  new QTimer(0);
+    //connect(animationTimer,SIGNAL(timeout()),this,SLOT(changeImg()));
+    //animationTimer->start(1000);
 }
 
-ArmyState1::~ArmyState1()
-{}
+ArmyState1::~ArmyState1(){}
 
 QPixmap ArmyState1::getPixMap()
 {
-    return pxm;
+    return currentPixmap;
 }
 
 int ArmyState1::getHeight()
 {
-    return pxm.height();
+    return currentPixmap.height();
 }
 
 int ArmyState1::getWidth()
 {
-    return pxm.width();
+    return currentPixmap.width();
 }
+
+//void ArmyState1::changeImg()
+//{
+//    animationTimer->start(1000);
+//}

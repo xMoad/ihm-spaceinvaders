@@ -10,12 +10,12 @@
 
 using namespace std;
 
-class ArmyEntity:QObject
+class ArmyEntity:public QObject
 {
     Q_OBJECT
 public:
     ArmyEntity(int indexI, int indexJ);
-    QTimer *autoMoveTimer;
+    //QTimer *autoMoveTimer;
     QPoint pos;
 
     bool isHit(QRect shot);
@@ -29,8 +29,6 @@ private:
     QPainterPath path;
     QRect rect;
     ArmyState *state;
-
-    void calculatePath();
 
 public slots:
     void changeState();
