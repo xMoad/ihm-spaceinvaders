@@ -1,6 +1,7 @@
 #include "ArmyState1.h"
-#include <QString>
-#include <QImage>
+#include <QPixmap>
+#include <QTimer>
+#include <iostream>
 
 using namespace std;
 
@@ -42,12 +43,14 @@ ArmyState1::ArmyState1():ArmyState()
     pxm[1] = QPixmap("../img/invader2c.gif");
     currentPixmap = pxm[0];
 
-    //animationTimer =  new QTimer(0);
+    //animationTimer =  new QTimer(this);
     //connect(animationTimer,SIGNAL(timeout()),this,SLOT(changeImg()));
-    //animationTimer->start(1000);
+    animationTimer->start(400);
+    index = true;
 }
 
-ArmyState1::~ArmyState1(){}
+ArmyState1::~ArmyState1(){
+}
 
 QPixmap ArmyState1::getPixMap()
 {
@@ -64,7 +67,10 @@ int ArmyState1::getWidth()
     return currentPixmap.width();
 }
 
-//void ArmyState1::changeImg()
-//{
-//    animationTimer->start(1000);
-//}
+void ArmyState1::animationSlot()
+{
+    index = !index;
+    currentPixmap = pxm[(int)index];
+    animationTimer->stop();
+    animationTimer->start(400);
+}

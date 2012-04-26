@@ -3,11 +3,7 @@
 
 #include "ArmyState.h"
 #include <QPixmap>
-#include <iostream>
-#include <QString>
 #include <QTimer>
-
-using namespace std;
 
 class ArmyState1:public ArmyState
 {
@@ -19,6 +15,7 @@ private:
     //static const int height = 8;
     QPixmap* pxm;
     QPixmap currentPixmap;
+    bool index;
 
 public:
     ArmyState1();
@@ -28,8 +25,8 @@ public:
     virtual int getWidth();
 
     //QTimer* animationTimer;
-//public slots:
-    //void changeImg();
+public slots:
+    virtual void animationSlot();
 
 };
 
