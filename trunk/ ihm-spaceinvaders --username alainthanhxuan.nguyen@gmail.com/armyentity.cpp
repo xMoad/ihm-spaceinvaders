@@ -1,14 +1,8 @@
-#include "armyentity.h"
-
-#include <QTimer>
-#include <QPainter>
-#include <QPoint>
-#include <QPainterPath>
 #include <QRect>
-#include <QList>
 #include "ArmyState/ArmyState1.h"
 #include "ArmyState/ArmyState2.h"
 #include "invaderarmy.h"
+#include "armyentity.h"
 
 ArmyEntity::ArmyEntity(int indexI, int indexJ)
 {
@@ -69,22 +63,5 @@ void ArmyEntity::translate(int x, int y){
 
 void ArmyEntity::changeState()
 {
-
-}
-
-void ArmyEntity::calculatePath()
-{    
-//    QList< QList<int> > l = state->getMatrix();
-//    for(int i = 0; i < l.count(); i++)
-//    {
-//        for(int j = 0; j < l[i].count(); j++)
-//        {
-//            if(l[i][j] == 1)
-//            {
-//                QRect rect = QRect(pos.x()+i*widthOfSQuare,pos.y()+j*heightOfSQuare,widthOfSQuare, widthOfSQuare);
-//                path.addRect(rect);
-//            }
-//        }
-//    }
 
 }
