@@ -3,6 +3,7 @@
 #include <QPixmap>
 #include <QObject>
 #include <QTimer>
+#include <QString>
 
 class ArmyState:public QObject
 {
@@ -14,8 +15,10 @@ public:
     virtual QPixmap getPixMap()= 0;
     virtual int getWidth() = 0;
     virtual int getHeight() = 0;
+    virtual QString getClassName() = 0;
 protected:
     QTimer* animationTimer;
+    QString name;
 public slots:
     virtual void animationSlot();
 };

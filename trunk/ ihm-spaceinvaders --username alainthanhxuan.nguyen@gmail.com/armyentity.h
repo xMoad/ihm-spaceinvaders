@@ -14,8 +14,8 @@ class ArmyEntity:public QObject
 {
     Q_OBJECT
 public:
-    ArmyEntity(int indexI, int indexJ);
-    //QTimer *autoMoveTimer;
+    ArmyEntity(int indexI, int indexJ, QObject* parent=0);
+    QTimer *autoTimer;
     QPoint pos;
 
     bool isHit(QRect shot);

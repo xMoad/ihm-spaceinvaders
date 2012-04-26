@@ -4,7 +4,7 @@
 #include "invaderarmy.h"
 #include "armyentity.h"
 
-ArmyEntity::ArmyEntity(int indexI, int indexJ)
+ArmyEntity::ArmyEntity(int indexI, int indexJ, QObject* parent)
 {
     state = new ArmyState1();
 
@@ -12,6 +12,9 @@ ArmyEntity::ArmyEntity(int indexI, int indexJ)
     pos.setY(state->getHeight()*indexJ+InvaderArmy::intervalRow);
     cout << "posX: " << pos.x() << " posY: " << pos.y() << endl;
 
+    autoTimer = new QTimer(this);
+    connect(autoTimer,SIGNAL(timeout()),this,SLOT(changeState()));
+    autoTimer->start(5000);
     isAlive = true;
 }
 
@@ -63,5 +66,11 @@ void ArmyEntity::translate(int x, int y){
 
 void ArmyEntity::changeState()
 {
-
+    if(state->getClassName() == "state1")
+    {
+        state = new ArmyState2();
+    }else
+        state = new ArmyState1();
+    autoTimer->stop();
+    autoTimer->start(5000);
 }

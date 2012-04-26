@@ -4,6 +4,7 @@
 #include "ArmyState.h"
 #include <QPixmap>
 #include <QTimer>
+#include <QString>
 
 class ArmyState1:public ArmyState
 {
@@ -23,11 +24,10 @@ public:
     virtual QPixmap getPixMap();
     virtual int getHeight();
     virtual int getWidth();
+    virtual QString getClassName();
 
     //QTimer* animationTimer;
 public slots:
     virtual void animationSlot();
-
 };
-
 #endif // ARMYSTATE1_H

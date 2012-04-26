@@ -38,6 +38,7 @@ ArmyState1::ArmyState1():ArmyState()
 //        }
 //        state1.append(lst);
 //    }
+    name = "state1";
     pxm = new QPixmap[2];
     pxm[0] = QPixmap("../img/invader2.gif");
     pxm[1] = QPixmap("../img/invader2c.gif");
@@ -50,6 +51,7 @@ ArmyState1::ArmyState1():ArmyState()
 }
 
 ArmyState1::~ArmyState1(){
+    delete pxm;
 }
 
 QPixmap ArmyState1::getPixMap()
@@ -73,4 +75,8 @@ void ArmyState1::animationSlot()
     currentPixmap = pxm[(int)index];
     animationTimer->stop();
     animationTimer->start(400);
+}
+
+QString ArmyState1::getClassName(){
+    return name;
 }

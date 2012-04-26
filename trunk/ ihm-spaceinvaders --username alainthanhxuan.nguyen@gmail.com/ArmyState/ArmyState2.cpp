@@ -2,6 +2,7 @@
 #include <QPixmap>
 #include <QTimer>
 #include <iostream>
+#include <QString>
 
 using namespace std;
 
@@ -12,11 +13,13 @@ ArmyState2::ArmyState2():ArmyState()
     pxm[1] = QPixmap("../img/invader1c.gif");
     currentPixmap = pxm[0];
 
+    name = "state2";
     animationTimer->start(400);
     index = true;
 }
 
 ArmyState2::~ArmyState2(){
+    delete pxm;
 }
 
 QPixmap ArmyState2::getPixMap()
@@ -40,4 +43,8 @@ void ArmyState2::animationSlot()
     currentPixmap = pxm[(int)index];
     animationTimer->stop();
     animationTimer->start(400);
+}
+
+QString ArmyState2::getClassName(){
+    return name;
 }
