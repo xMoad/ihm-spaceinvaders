@@ -12,13 +12,13 @@
 
 using namespace std;
 
-class InvaderShip : public QWidget
+class InvaderShip
 {
-    Q_OBJECT
+
 
 public:
     //InvaderShip(int width, int height, QWidget *parent = 0);
-    InvaderShip(int posX, int posY, QWidget *parent = 0);
+    InvaderShip(int posX, int posY);
 
     QPoint pos;
     //int xmin, xmax;
