@@ -1,28 +1,43 @@
 #include "ArmyState2.h"
-#include <vector>
+#include <QPixmap>
+#include <QTimer>
+#include <iostream>
 
-ArmyState2::ArmyState2():ArmyState(){}
+using namespace std;
 
-ArmyState2::~ArmyState2()
+ArmyState2::ArmyState2():ArmyState()
 {
+    pxm = new QPixmap[2];
+    pxm[0] = QPixmap("../img/invader1.gif");
+    pxm[1] = QPixmap("../img/invader1c.gif");
+    currentPixmap = pxm[0];
+
+    animationTimer->start(400);
+    index = true;
 }
 
-//int **ArmyState2::getMatrix()
-//{
-//     static const int state2[8][11] = {
-//        {0,0,1,0,0,0,0,0,1,0,0},
-//        {1,0,0,1,0,0,0,1,0,0,1},
-//        {1,0,1,1,1,1,1,1,1,0,1},
-//        {1,1,1,0,1,1,1,0,1,1,1},
-//        {0,1,1,1,1,1,1,1,1,1,0},
-//        {0,0,1,1,1,1,1,1,1,0,0},
-//        {0,0,1,0,0,0,0,0,1,0,0},
-//        {0,0,0,1,1,0,1,1,0,0,0}
-//    };
-//     return (int**)state2;
-//}
+ArmyState2::~ArmyState2(){
+}
 
-QList< QList<int> > ArmyState2::getMatrix()
+QPixmap ArmyState2::getPixMap()
 {
-    return state2;
+    return currentPixmap;
+}
+
+int ArmyState2::getHeight()
+{
+    return currentPixmap.height();
+}
+
+int ArmyState2::getWidth()
+{
+    return currentPixmap.width();
+}
+
+void ArmyState2::animationSlot()
+{
+    index = !index;
+    currentPixmap = pxm[(int)index];
+    animationTimer->stop();
+    animationTimer->start(400);
 }

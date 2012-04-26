@@ -2,16 +2,25 @@
 #define ARMYSTATE2_H
 
 #include "ArmyState.h"
-#include <QList>
+#include <QPixmap>
+#include <QTimer>
 
 class ArmyState2:public ArmyState
 {
+    //Q_OBJECT
+private:
+    QPixmap* pxm;
+    QPixmap currentPixmap;
+    bool index;
+
 public:
     ArmyState2();
-    QList<QList<int> > state2;
     virtual ~ArmyState2();
-    //virtual int** getMatrix();
-    virtual QList<QList<int> >  getMatrix();
-};
+    virtual QPixmap getPixMap();
+    virtual int getHeight();
+    virtual int getWidth();
 
+public slots:
+    virtual void animationSlot();
+};
 #endif // ARMYSTATE2_H
