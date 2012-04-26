@@ -11,8 +11,7 @@
     ymax = height-50, ymin= 20;
 }*/
 
-InvaderShip::InvaderShip(int posX, int posY, QWidget *parent)
-    : QWidget(parent)
+InvaderShip::InvaderShip(int posX, int posY)
 {
     cout << "posX: " << posX << " posY: " << posY << endl;
     pos.setX(posX);
