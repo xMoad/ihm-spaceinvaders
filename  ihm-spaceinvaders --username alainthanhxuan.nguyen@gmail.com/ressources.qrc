@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/Stars.gif</file>
+        <file>img/invader2.gif</file>
+        <file>img/invader1.gif</file>
+        <file>img/invader1c.gif</file>
+        <file>img/invader2c.gif</file>
+        <file>img/invader3.gif</file>
+        <file>img/invader3c.gif</file>
+    </qresource>
+</RCC>
