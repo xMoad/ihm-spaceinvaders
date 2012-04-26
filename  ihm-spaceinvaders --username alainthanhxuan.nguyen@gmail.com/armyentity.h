@@ -6,18 +6,23 @@
 #include <QPoint>
 #include <QPainterPath>
 #include "ArmyState/ArmyState.h"
+#include <iostream>
+
+using namespace std;
 
 class ArmyEntity:QObject
 {
     Q_OBJECT
 public:
-    ArmyEntity();
+    ArmyEntity(int posX, int posY);
     QTimer *autoMoveTimer;
     QPoint pos;
 
     bool isHit(QRect shot);
     void setIsAlive(bool b);
     bool getIsAlive();
+    void translate(int x, int y);
+    void paint(QPainter &painter);
 
 private:
     bool isAlive;
@@ -25,8 +30,6 @@ private:
     ArmyState *state;
     int widthOfSQuare, heightOfSQuare;
 
-    void paint(QPainter &painter);
-    void translate(int x, int y);
     void calculatePath();
 
 public slots:

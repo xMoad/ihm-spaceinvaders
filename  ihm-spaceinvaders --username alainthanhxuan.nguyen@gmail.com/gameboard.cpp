@@ -11,7 +11,7 @@
 
 #include "gameboard.h"
 #include "ui_gameboard.h"
-#include "battleField.h"
+#include "battlefield.h"
 #include "lcdrange.h"
 
 GameBoard::GameBoard(QWidget *parent) :

@@ -1,4 +1,5 @@
 #include "invaderarmy.h"
+#include "armyentity.h"
 
 InvaderArmy::InvaderArmy(int width, int height, QWidget *parent) :
     QWidget(parent)
@@ -19,7 +20,9 @@ InvaderArmy::InvaderArmy(int width, int height, QWidget *parent) :
     for(int i=0; i<armyHeigth; i++){
         for(int j=0; j<armyWidth; j++){
             invaderArmy[i][j] = new InvaderShip(xmin + intervalShip*j,
-                                                ymin + intervalRow*i);
+                                                ymin + intervalRow*i,parent);
+//               invaderArmy[i][j] = new ArmyEntity(xmin + intervalShip*j,
+//                                                ymin + intervalRow*i);
         }
     }
 
