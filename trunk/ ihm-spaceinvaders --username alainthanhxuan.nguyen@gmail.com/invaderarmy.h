@@ -13,6 +13,7 @@
 
 #include "invadership.h"
 #include "bullet.h"
+#include "armyentity.h"
 
 #define armyWidth 8
 #define armyHeigth 2
@@ -29,6 +30,7 @@ class InvaderArmy : public QWidget
     Q_OBJECT
 public:
     InvaderShip* invaderArmy[armyHeigth][armyWidth];
+    //ArmyEntity* invaderArmy[armyHeigth][armyWidth];
 
     int xmin, xmax, ymin, ymax;
     int leftEdgeI, rightEdgeI, bottomEdgeI;
