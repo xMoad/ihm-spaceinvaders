@@ -40,8 +40,8 @@ ArmyState1::ArmyState1():ArmyState()
 //    }
     name = "state1";
     pxm = new QPixmap[2];
-    pxm[0] = QPixmap("../img/invader2.gif");
-    pxm[1] = QPixmap("../img/invader2c.gif");
+    pxm[0] = QPixmap(":/img/invader2.gif");
+    pxm[1] = QPixmap(":/img/invader2c.gif");
     currentPixmap = pxm[0];
 
     //animationTimer =  new QTimer(this);

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "playership.h"
-//#include "invadership.h"
+#include <QPixmap>
 #include "invaderarmy.h"
 
 QT_BEGIN_NAMESPACE
@@ -27,8 +27,10 @@ public:
     QTimer *autoShootTimer;
     QPoint target;
     bool gameEnded;
+    QPixmap background;
 
     void paintEvent(QPaintEvent *event);
+    bool isHit(QRect shot);
 
     int getSizeX();
     int getSizeY();
@@ -36,7 +38,6 @@ public:
     void newPlayer();
     void beginTimer();
 
-    bool isHit(QRect shot);
 
 
 public slots:

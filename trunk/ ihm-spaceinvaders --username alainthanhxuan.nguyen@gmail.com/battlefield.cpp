@@ -3,11 +3,20 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QTimer>
+#include <QPalette>
+#include <QApplication>
+#include <QString>
+#include <iostream>
+#include <QDesktopWidget>
+#include <QRect>
+#include <QSize>
 
 #include <math.h>
 #include <stdlib.h>
 
 #include "battlefield.h"
+
+using namespace std;
 
 BattleField::BattleField(QWidget *parent)
     : QWidget(parent)
@@ -18,6 +27,19 @@ BattleField::BattleField(QWidget *parent)
     target = QPoint(0, 0);
     gameEnded = false;
 
+//    QString dir = QApplication::applicationDirPath();
+//    cout<<"fdggfdhege"<<dir.toStdString();
+//    background = QPixmap(":/img/Stars.gif");
+//    QPalette palette;
+//    //resize image if it is larger than screen size.
+//    QDesktopWidget* desktopWidget = QApplication::desktop();
+//    QRect rect = desktopWidget->availableGeometry();
+
+//    QSize size(rect.width() , rect.height());
+//        //resize as per your requirement..
+//    QPixmap pixmap(background.scaled(size));
+//    palette.setBrush(QPalette::Background, pixmap);
+//    setPalette(palette);
     setPalette(QPalette(QColor(0, 0, 0)));
     setAutoFillBackground(true);
 }

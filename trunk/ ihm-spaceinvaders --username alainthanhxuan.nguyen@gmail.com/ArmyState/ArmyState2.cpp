@@ -9,8 +9,8 @@ using namespace std;
 ArmyState2::ArmyState2():ArmyState()
 {
     pxm = new QPixmap[2];
-    pxm[0] = QPixmap("../img/invader1.gif");
-    pxm[1] = QPixmap("../img/invader1c.gif");
+    pxm[0] = QPixmap(":/img/invader1.gif");
+    pxm[1] = QPixmap(":/img/invader1c.gif");
     currentPixmap = pxm[0];
 
     name = "state2";
